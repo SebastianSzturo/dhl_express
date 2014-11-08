@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.mydhl.dhl.com/shipmentTracking?AWB=6476119576
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - s-maxage=172800
+      Expires:
+      - Mon, 10 Nov 2014 05:37:23 GMT
+      MyHeader:
+      - D=454085
+      X-Frame-Options:
+      - SAMEORIGIN
+      Content-Length:
+      - '1404'
+      Content-Type:
+      - application/json;charset=UTF-8
+      Date:
+      - Sat, 08 Nov 2014 06:20:33 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - TS016f3c0b=01914b743d55f0dfe481a6f14f9bc17ce30eb4edd08abab906ac918865663d03d83d32b156;
+        Path=/
+      - TS017581b3=012d4839b38099af17f13f251b42089167c25acb0b0d839e5ed0d86c977ba6852bec27780bf8dd29a4441c4ee72715fae48a420d94;
+        Path=/; Secure; HTTPOnly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "results" : [ {
+            "id" : "6476119576",
+            "label" : "Waybill",
+            "type" : "airwaybill",
+            "duplicate" : false,
+            "origin" : {
+              "value" : "TOKYO - HIGASHIKURUME - JAPAN",
+              "label" : "Origin Service Area",
+              "url" : "http://www.dhl.co.jp/en/country_profile.html"
+            },
+            "destination" : {
+              "value" : "GREENSBORO, NC - GREENSBORO - USA",
+              "label" : "Destination Service Area",
+              "url" : "http://www.dhl-usa.com/en/country_profile.html"
+            },
+            "description" : "Shipment information received : Friday, November 07, 2014  at 15:34",
+            "hasDuplicateShipment" : false,
+            "signature" : {
+              "link" : {
+                "url" : "https://proview.dhl.com/GC3/proview/adhocnotify?id=mAtE%2F0oL0r0wvmjggydn8Zh%2FkrRB7XethXdun71Ou1A%3D&appuid=ONWLDos95lgDjSxbiEfEsg%3D%3D&locale=en_G0&token=R3Fk9Yr1tYl7WI25yMeMGrA0V4qA124LF2O22zX5298%3D",
+                "label" : "Sign up for shipment notifications"
+              },
+              "type" : "proview",
+              "description" : "Friday, November 07, 2014  at 15:34",
+              "signatory" : "Shipment information received ",
+              "help" : "help"
+            },
+            "checkpoints" : [ {
+              "counter" : 1,
+              "description" : "Shipment information received",
+              "time" : "15:34",
+              "date" : "Friday, November 07, 2014 ",
+              "location" : "TOKYO - JAPAN"
+            } ],
+            "checkpointLocationLabel" : "Location",
+            "checkpointTimeLabel" : "Time"
+          } ]
+        }
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://www.mydhl.dhl.com/shipmentTracking?AWB=6476119576
+  recorded_at: Sat, 08 Nov 2014 06:20:33 GMT
+recorded_with: VCR 2.9.3

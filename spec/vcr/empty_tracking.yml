@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.mydhl.dhl.com/shipmentTracking?AWB=1234567
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Typhoeus - https://github.com/typhoeus/typhoeus
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      Cache-Control:
+      - s-maxage=172800
+      - max-age=172800
+      Content-Type:
+      - application/json;charset=UTF-8
+      Expires:
+      - Mon, 10 Nov 2014 06:20:33 GMT
+      MyHeader:
+      - D=37339
+      Content-Length:
+      - '165'
+      Date:
+      - Sat, 08 Nov 2014 06:20:33 GMT
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - TS017581b3=012d4839b318947c44326df3f5ecad656d3a45b00b5a5ef3b3f7bc08c8b390e91389419794;
+        Path=/; Secure; HTTPOnly
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "errors" : [ {
+            "code" : 404,
+            "label" : "Not found",
+            "message" : "No result found for your DHL query. Please try again.",
+            "id" : "1234567"
+          } ]
+        }
+    http_version: '1.1'
+    adapter_metadata:
+      effective_url: https://www.mydhl.dhl.com/shipmentTracking?AWB=1234567
+  recorded_at: Sat, 08 Nov 2014 06:20:33 GMT
+recorded_with: VCR 2.9.3
