@@ -1,5 +1,5 @@
 ## DHL Express :package:
-[![Build Status](https://travis-ci.org/SebastianSzturo/dhl_express.svg?branch=master)](https://travis-ci.org/SebastianSzturo/dhl_express) [![Code Climate](https://codeclimate.com/github/SebastianSzturo/dhl_express/badges/gpa.svg)](https://codeclimate.com/github/SebastianSzturo/dhl_express)
+[![Gem Version](https://badge.fury.io/rb/dhl_express.svg)](http://badge.fury.io/rb/dhl_express) [![Build Status](https://travis-ci.org/SebastianSzturo/dhl_express.svg?branch=master)](https://travis-ci.org/SebastianSzturo/dhl_express) [![Code Climate](https://codeclimate.com/github/SebastianSzturo/dhl_express/badges/gpa.svg)](https://codeclimate.com/github/SebastianSzturo/dhl_express)
 
 A gem to track international DHL Express packages without the DHL SOAP/XML API.
 
