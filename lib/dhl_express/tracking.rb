@@ -16,14 +16,14 @@ module DhlExpress
       tracking_url = "https://www.mydhl.dhl.com/shipmentTracking?AWB=#{@tracking_number}"
 
       @tracking_json = JSON.parse(Typhoeus.get(tracking_url).body)
-
-      raise RuntimeError, "No Tracking found." if @tracking_json["results"].nil?
     end
 
     # Origin of the package
     #
     # Returns origin as String.
     def origin
+      return nil if tracking_is_empty
+
       origin = @tracking_json["results"][0]["origin"]["value"].strip
       return origin
     end
@@ -32,6 +32,8 @@ module DhlExpress
     #
     # Returns destination as String.
     def destination
+      return nil if tracking_is_empty
+
       destination = @tracking_json["results"][0]["destination"]["value"].strip
       return destination
     end
@@ -40,6 +42,8 @@ module DhlExpress
     #
     # Returns status as String.
     def status
+      return nil if tracking_is_empty
+
       status = @tracking_json["results"][0]["description"].strip
       return status
     end
@@ -48,6 +52,8 @@ module DhlExpress
     #
     # Returns tracking history as Array.
     def history
+      return nil if tracking_is_empty
+
       checkpoints = @tracking_json["results"][0]["checkpoints"]
 
       history = []
@@ -75,6 +81,14 @@ module DhlExpress
 
       date = Chronic.parse("#{date_without_weekday} at #{time}") rescue nil
       return date
+    end
+
+    def tracking_is_empty
+      if @tracking_json["results"].nil?
+        return true
+      else
+        return false
+      end
     end
 
   end

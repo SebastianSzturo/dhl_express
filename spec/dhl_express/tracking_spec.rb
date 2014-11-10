@@ -6,12 +6,6 @@ describe DhlExpress::Tracking do
       expect { DhlExpress::Tracking.new() }.to raise_error(ArgumentError)
     end
 
-    it "should not initialize with empty tracking" do
-      VCR.use_cassette 'empty_tracking' do
-        expect { DhlExpress::Tracking.new("1234567") }.to raise_error(RuntimeError)
-      end
-    end
-
     it "should initialize a tracking object" do
       VCR.use_cassette 'working_tracking' do
         package = DhlExpress::Tracking.new("6476119576")
@@ -27,6 +21,13 @@ describe DhlExpress::Tracking do
         expect(package.origin).to be_kind_of(String)
       end
     end
+
+    it "should return nil with empty tracking number" do
+      VCR.use_cassette 'empty_tracking' do
+        package = DhlExpress::Tracking.new("1234567")
+        expect(package.origin).to be_nil
+      end
+    end
   end
 
   describe "#destination" do
@@ -34,6 +35,13 @@ describe DhlExpress::Tracking do
       VCR.use_cassette 'working_tracking' do
         package = DhlExpress::Tracking.new("6476119576")
         expect(package.destination).to be_kind_of(String)
+      end
+    end
+
+    it "should return nil with empty tracking number" do
+      VCR.use_cassette 'empty_tracking' do
+        package = DhlExpress::Tracking.new("1234567")
+        expect(package.destination).to be_nil
       end
     end
   end
@@ -45,6 +53,13 @@ describe DhlExpress::Tracking do
         expect(package.status).to be_kind_of(String)
       end
     end
+
+    it "should return nil with empty tracking number" do
+      VCR.use_cassette 'empty_tracking' do
+        package = DhlExpress::Tracking.new("1234567")
+        expect(package.status).to be_nil
+      end
+    end
   end
 
   describe "#history" do
@@ -52,6 +67,13 @@ describe DhlExpress::Tracking do
       VCR.use_cassette 'working_tracking' do
         package = DhlExpress::Tracking.new("6476119576")
         expect(package.history).to be_kind_of(Array)
+      end
+    end
+
+    it "should return nil with empty tracking number" do
+      VCR.use_cassette 'empty_tracking' do
+        package = DhlExpress::Tracking.new("1234567")
+        expect(package.history).to be_nil
       end
     end
   end
