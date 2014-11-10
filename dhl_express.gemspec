@@ -20,9 +20,9 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "nokogiri"
   spec.add_dependency "chronic"
+  spec.add_dependency "typhoeus"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "vcr"
-  spec.add_development_dependency "typhoeus"
 end
