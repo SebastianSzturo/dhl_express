@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://www.mydhl.dhl.com/shipmentTracking?AWB=6476119576
+    uri: http://www.dhl-usa.com/shipmentTracking?AWB=6476119576&countryCode=us&languageCode=en
     body:
       encoding: US-ASCII
       string: ''
@@ -14,27 +14,23 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Cache-Control:
-      - s-maxage=172800
-      Expires:
-      - Mon, 10 Nov 2014 05:37:23 GMT
-      MyHeader:
-      - D=454085
-      X-Frame-Options:
-      - SAMEORIGIN
-      Content-Length:
-      - '1404'
       Content-Type:
       - application/json;charset=UTF-8
+      Content-Length:
+      - '5499'
+      Expires:
+      - Fri, 14 Nov 2014 00:42:29 GMT
+      Cache-Control:
+      - max-age=0, no-cache, no-store
+      Pragma:
+      - no-cache
       Date:
-      - Sat, 08 Nov 2014 06:20:33 GMT
+      - Fri, 14 Nov 2014 00:42:29 GMT
       Connection:
       - keep-alive
       Set-Cookie:
-      - TS016f3c0b=01914b743d55f0dfe481a6f14f9bc17ce30eb4edd08abab906ac918865663d03d83d32b156;
+      - TS016f3c0b=01914b743de0fe040073f129bd32830fe238f20a70839e8ed4b37f00dacb23f11191247d17;
         Path=/
-      - TS017581b3=012d4839b38099af17f13f251b42089167c25acb0b0d839e5ed0d86c977ba6852bec27780bf8dd29a4441c4ee72715fae48a420d94;
-        Path=/; Secure; HTTPOnly
     body:
       encoding: UTF-8
       string: |-
@@ -44,6 +40,10 @@ http_interactions:
             "label" : "Waybill",
             "type" : "airwaybill",
             "duplicate" : false,
+            "delivery" : {
+              "code" : "101",
+              "status" : "delivered"
+            },
             "origin" : {
               "value" : "TOKYO - HIGASHIKURUME - JAPAN",
               "label" : "Origin Service Area",
@@ -54,24 +54,145 @@ http_interactions:
               "label" : "Destination Service Area",
               "url" : "http://www.dhl-usa.com/en/country_profile.html"
             },
-            "description" : "Shipment information received : Friday, November 07, 2014  at 15:34",
+            "description" : "Delivered - Signed for by : Tuesday, November 11, 2014  at 10:46 AM",
             "hasDuplicateShipment" : false,
             "signature" : {
               "link" : {
-                "url" : "https://proview.dhl.com/GC3/proview/adhocnotify?id=mAtE%2F0oL0r0wvmjggydn8Zh%2FkrRB7XethXdun71Ou1A%3D&appuid=ONWLDos95lgDjSxbiEfEsg%3D%3D&locale=en_G0&token=R3Fk9Yr1tYl7WI25yMeMGrA0V4qA124LF2O22zX5298%3D",
-                "label" : "Sign up for shipment notifications"
+                "url" : "https://webpod.dhl.com/webPOD/DHLePODRequest?hwb=6VOW9nUCQLG7t9JTv9GxfA%3D%3D&pudate=dF1NuwwGCJkiiUL1Uem1WA%3D%3D&appuid=Cen%2BQLKtH%2BZt07%2FzXi%2BsVQ%3D%3D&language=en&country=US",
+                "label" : "Get Signature Proof of Delivery"
               },
-              "type" : "proview",
-              "description" : "Friday, November 07, 2014  at 15:34",
-              "signatory" : "Shipment information received ",
+              "type" : "epod",
+              "description" : "Tuesday, November 11, 2014  at 10:46 AM",
+              "signatory" : "Delivered - Signed for by ",
               "help" : "help"
             },
+            "extraShipmentDetails" : {
+              "from" : [ "Higashikurume , Japan" ],
+              "to" : [ "DAMON ROBERTS", "Greensboro , NC  27407", "United States of America" ],
+              "noteOnWeight" : {
+                "value" : "The weights displayed on this website are the weights provided when the shipment was created. Actual chargeable weights may be different and will be provided on the invoice",
+                "label" : "Note on Weight"
+              },
+              "information" : [ {
+                "value" : "2.9 lbs",
+                "label" : "Total Weight"
+              }, {
+                "value" : "BOOK",
+                "label" : "Description"
+              }, {
+                "value" : "EXPRESS WORLDWIDE nondoc",
+                "label" : "Service"
+              }, {
+                "value" : "11/10/2014",
+                "label" : "Ship Date"
+              }, {
+                "value" : "Package",
+                "label" : "Ship Type"
+              }, {
+                "value" : "1",
+                "label" : "Pieces"
+              } ]
+            },
+            "pieces" : {
+              "value" : 1,
+              "label" : "Pieces",
+              "showSummary" : true,
+              "pIds" : [ "JD014600001324883884" ]
+            },
             "checkpoints" : [ {
+              "counter" : 12,
+              "description" : "Delivered - Signed for by ",
+              "time" : "10:46 AM",
+              "date" : "Tuesday, November 11, 2014 ",
+              "location" : "GREENSBORO                         ",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
+              "counter" : 11,
+              "description" : "With delivery courier",
+              "time" : "8:28 AM",
+              "date" : "Tuesday, November 11, 2014 ",
+              "location" : "GREENSBORO, NC - USA",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
+              "counter" : 10,
+              "description" : "Arrived at Delivery Facility in  GREENSBORO - USA",
+              "time" : "7:44 AM",
+              "date" : "Tuesday, November 11, 2014 ",
+              "location" : "GREENSBORO, NC - USA",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
+              "counter" : 9,
+              "description" : "Departed Facility in  CINCINNATI HUB - USA",
+              "time" : "5:49 AM",
+              "date" : "Tuesday, November 11, 2014 ",
+              "location" : "CINCINNATI HUB, OH - USA",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
+              "counter" : 8,
+              "description" : "Processed at  CINCINNATI HUB - USA",
+              "time" : "4:09 AM",
+              "date" : "Tuesday, November 11, 2014 ",
+              "location" : "CINCINNATI HUB, OH - USA",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
+              "counter" : 7,
+              "description" : "Clearance processing complete at  CINCINNATI HUB - USA",
+              "time" : "3:36 AM",
+              "date" : "Tuesday, November 11, 2014 ",
+              "location" : "CINCINNATI HUB, OH - USA",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
+              "counter" : 6,
+              "description" : "Arrived at Sort Facility  CINCINNATI HUB - USA",
+              "time" : "3:07 AM",
+              "date" : "Tuesday, November 11, 2014 ",
+              "location" : "CINCINNATI HUB, OH - USA",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
+              "counter" : 5,
+              "description" : "Customs status updated",
+              "time" : "12:54 PM",
+              "date" : "Monday, November 10, 2014 ",
+              "location" : "CINCINNATI HUB, OH - USA"
+            }, {
+              "counter" : 4,
+              "description" : "Departed Facility in  TOKYO - JAPAN",
+              "time" : "9:28 PM",
+              "date" : "Monday, November 10, 2014 ",
+              "location" : "TOKYO - JAPAN",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
+              "counter" : 3,
+              "description" : "Processed at  TOKYO - JAPAN",
+              "time" : "8:16 PM",
+              "date" : "Monday, November 10, 2014 ",
+              "location" : "TOKYO - JAPAN",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
+              "counter" : 2,
+              "description" : "Arrived at Sort Facility  TOKYO - JAPAN",
+              "time" : "6:54 PM",
+              "date" : "Monday, November 10, 2014 ",
+              "location" : "TOKYO - JAPAN",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
+            }, {
               "counter" : 1,
-              "description" : "Shipment information received",
-              "time" : "15:34",
-              "date" : "Friday, November 07, 2014 ",
-              "location" : "TOKYO - JAPAN"
+              "description" : "Shipment picked up",
+              "time" : "1:53 PM",
+              "date" : "Monday, November 10, 2014 ",
+              "location" : "TOKYO - JAPAN",
+              "totalPieces" : 1,
+              "pIds" : [ "JD014600001324883884" ]
             } ],
             "checkpointLocationLabel" : "Location",
             "checkpointTimeLabel" : "Time"
@@ -79,6 +200,6 @@ http_interactions:
         }
     http_version: '1.1'
     adapter_metadata:
-      effective_url: https://www.mydhl.dhl.com/shipmentTracking?AWB=6476119576
-  recorded_at: Sat, 08 Nov 2014 06:20:33 GMT
+      effective_url: http://www.dhl-usa.com/shipmentTracking?AWB=6476119576&countryCode=us&languageCode=en
+  recorded_at: Fri, 14 Nov 2014 00:42:29 GMT
 recorded_with: VCR 2.9.3
