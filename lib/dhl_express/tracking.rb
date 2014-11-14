@@ -13,7 +13,7 @@ module DhlExpress
       raise ArgumentError unless tracking_number
 
       @tracking_number = tracking_number
-      tracking_url = "https://www.mydhl.dhl.com/shipmentTracking?AWB=#{@tracking_number}"
+      tracking_url = "http://www.dhl-usa.com/shipmentTracking?AWB=#{@tracking_number}&countryCode=us&languageCode=en"
 
       @tracking_json = JSON.parse(Typhoeus.get(tracking_url).body)
     end
